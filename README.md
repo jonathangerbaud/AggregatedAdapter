@@ -97,3 +97,11 @@ Compatibility
 
 Although the minSDK in the manifest is API 14, API 8 should work as well. I didn't want to have to handle this damn ActionBarCompat library. By the way, you should really stop making apps for API < 15.
 
+License
+=================
+
+"THE BEER-WARE LICENSE" (Revision 42):
+
+<jonathan.gerbaud@gmail.com> wrote this file. As long as you retain this notice
+you can do whatever you want with this stuff. If we meet some day, and you think
+this stuff is worth it, you can buy me a beer in return. -Jonathan GERBAUD
