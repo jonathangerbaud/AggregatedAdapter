@@ -15,19 +15,19 @@ How does it work ?
 =================
 
 ```java
-// ListView list = (ListView) findViewById(R.id.list);
-//
-// List<BaseAdapter> adapters = new ArrayList<BaseAdapter>(); //<- your "normal" adapters
-// //Add some adapters, they must extend BaseAdapter
-//
-// list.setAdapter(aadapter);
-// //done, easy !
+ListView list = (ListView) findViewById(R.id.list);
+
+List<BaseAdapter> adapters = new ArrayList<BaseAdapter>(); //<- your "normal" adapters
+//Add some adapters, they must extend BaseAdapter
+
+list.setAdapter(aadapter);
+//done, easy !
 ```
 
 Ok you might not have really understood how this works so far. Here is a more detailed example :
 
 ```java
-//public class TwoTypesActivity extends Activity
+public class TwoTypesActivity extends Activity
 {
 
 	@Override
