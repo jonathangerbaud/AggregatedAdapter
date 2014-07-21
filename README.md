@@ -1,0 +1,77 @@
+AggregatedAdapter
+=================
+
+An adapter that handles one or more data types in your listview/gridview
+
+How to can I get it into my project ?
+=================
+
+Simply import the class com.abewy.android.extended.adapter.AggregatedAdapter in your project
+
+How does it work ?
+=================
+
+```java
+// ListView list = (ListView) findViewById(R.id.list);
+//
+// List<BaseAdapter> adapters = new ArrayList<BaseAdapter>(); //<- your "normal" adapters
+// //Add some adapters, they must extend BaseAdapter
+//
+// list.setAdapter(aadapter);
+// //done, easy !
+```
+
+Ok you might not have really understood how this works so far. Here is a more detailed example :
+
+```java
+//public class TwoTypesActivity extends Activity
+{
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState)
+	{
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		
+		ListView list = (ListView) findViewById(R.id.list);
+		list.setDividerHeight(0);
+		list.setClipToPadding(false);
+		list.setScrollBarStyle(ListView.SCROLLBARS_OUTSIDE_INSET);
+		
+		List<BaseAdapter> adapters = new ArrayList<BaseAdapter>();
+		
+		//HeaderAdapter take only one header. I don't think you want a list
+		//with severals consecutives headers, do you ? 
+		adapters.add(new HeaderAdapter(new Header("Header1")));
+		
+		//Now you add your items for header 1
+		List<ItemType1> items = new ArrayList<ItemType1>();
+		items.add(new ItemType1("Lorem ipsum dolor sit amet", "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam."));
+		items.add(new ItemType1("Lorem ipsum dolor sit amet", "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam."));
+		items.add(new ItemType1("Lorem ipsum dolor sit amet", "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam."));
+		items.add(new ItemType1("Lorem ipsum dolor sit amet", "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam."));
+		items.add(new ItemType1("Lorem ipsum dolor sit amet", "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam."));
+		items.add(new ItemType1("Lorem ipsum dolor sit amet", "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam."));
+		adapters.add(new ItemType1Adapter(items));
+		
+		//Adding a second header
+		adapters.add(new HeaderAdapter(new Header("Header2")));
+		
+		//Complete with the set of items for section 2
+		items = new ArrayList<ItemType1>();
+		items.add(new ItemType1("Lorem ipsum dolor sit amet", "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam."));
+		items.add(new ItemType1("Lorem ipsum dolor sit amet", "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam."));
+		items.add(new ItemType1("Lorem ipsum dolor sit amet", "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam."));
+		items.add(new ItemType1("Lorem ipsum dolor sit amet", "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam."));
+		items.add(new ItemType1("Lorem ipsum dolor sit amet", "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam."));
+		adapters.add(new ItemType1Adapter(items));
+		
+		AggregatedAdapter aadapter = new AggregatedAdapter(adapters);
+		
+		list.setAdapter(aadapter);
+	}
+}
+```
+
+The result is this :
+![screen 1](/screenshot1.png)
