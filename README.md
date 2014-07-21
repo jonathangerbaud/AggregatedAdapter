@@ -2,7 +2,7 @@ AggregatedAdapter
 =================
 
 An adapter that handles one or more data types in your listview/gridview.
-The purpose of this library is to the listview adapter nightmare when you have to handle more that one kind of item view.
+The purpose of this library is to simplify the listview adapter nightmare when you have to handle more that one kind of data view.
 I'm sure you're trying to handle this in the Adapter.getView method, switching on getItemViewType(), ending with an ugly long code. Now you can define one adapter for each data view. Much simpler. Simply add it to the AggregateAdapter and it will do the magic for you.
 
 How to can I get it into my project ?
